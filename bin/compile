@@ -13,6 +13,9 @@ mkdir -p $BUILD_DIR/.profile.d
 # Make a .profile.d script to generate the google-credentials.json file for each dyno execution.
 cat > $BUILD_DIR/.profile.d/google-credentials.sh <<EOF
 #!/usr/bin/env bash
-echo ${GOOGLE_CREDENTIALS} > ${APP_DIR}/google-credentials.json
+
+# Everything here is intended to be evaluated at dyno runtime:
+app_dir=\${CNB_APP_DIR:-\${HOME}}
+echo \${GOOGLE_CREDENTIALS} > \${app_dir}/google-credentials.json
 EOF
 chmod +x $BUILD_DIR/.profile.d/google-credentials.sh
