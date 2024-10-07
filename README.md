@@ -1,4 +1,4 @@
-# google-application-credentials-buildpack
+# buildpack-google-app-creds
 Generates a Google credential file based on Heroku Config Vars.
 
 This is useful when using a package such as [@google-cloud/storage](https://www.npmjs.com/package/@google-cloud/storage) which loads credentials from a file instead of an environmental variable.
@@ -13,7 +13,7 @@ The script with generate a file called `google-credentials.json` which holds the
 To add to your application, run:
 
 ```
-heroku buildpacks:set https://buildio/google-application-credentials-buildpack -a your-app-name
+heroku buildpacks:set https://buildio/buildpack-google-app-creds -a your-app-name
 ```
 
 ## Warning
